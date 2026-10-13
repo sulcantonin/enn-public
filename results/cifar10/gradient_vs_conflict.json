@@ -1,0 +1,42 @@
+{
+  "num_classes": 3,
+  "family": "m1 = p on c_0, m2 = p on c_1, rest on Theta",
+  "rows": [
+    {
+      "p": 0.5,
+      "kappa": 0.25,
+      "yager_max_abs_jacobian": 1.0,
+      "dempster_max_abs_jacobian": 1.3333333730697632,
+      "one_over_one_minus_kappa": 1.3333333333333333
+    },
+    {
+      "p": 0.9,
+      "kappa": 0.809999942779541,
+      "yager_max_abs_jacobian": 1.0,
+      "dempster_max_abs_jacobian": 5.263156414031982,
+      "one_over_one_minus_kappa": 5.263156309683054
+    },
+    {
+      "p": 0.99,
+      "kappa": 0.9801000356674194,
+      "yager_max_abs_jacobian": 1.0,
+      "dempster_max_abs_jacobian": 50.251346588134766,
+      "one_over_one_minus_kappa": 50.251346348535044
+    },
+    {
+      "p": 0.999,
+      "kappa": 0.9980010390281677,
+      "yager_max_abs_jacobian": 1.0,
+      "dempster_max_abs_jacobian": 500.2599182128906,
+      "one_over_one_minus_kappa": 500.25989205951635
+    },
+    {
+      "p": 0.9999,
+      "kappa": 0.9997999668121338,
+      "yager_max_abs_jacobian": 1.0,
+      "dempster_max_abs_jacobian": 4999.17041015625,
+      "one_over_one_minus_kappa": 4999.170441001192
+    }
+  ],
+  "note": "Dempster derivative carries a (1-kappa)^-2 term; measured worst-case partial tracks (1-kappa)^-1 on this family. Yager stays at exactly 1."
+}

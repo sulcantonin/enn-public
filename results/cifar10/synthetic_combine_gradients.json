@@ -1,0 +1,7 @@
+{
+  "mean_grad_norm_yager": 0.20718777034431696,
+  "mean_grad_norm_dempster": 1.5221238477528096,
+  "mean_conflict": 0.7464039224386215,
+  "max_grad_norm_dempster": 4.459907054901123,
+  "max_grad_norm_yager": 0.44887277483940125
+}

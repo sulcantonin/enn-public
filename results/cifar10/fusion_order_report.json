@@ -1,0 +1,124 @@
+{
+  "checkpoint": "../results/cifar10/main_seed0/best_model.pth",
+  "rule": "yager",
+  "num_sources": 3,
+  "datasets": {
+    "CIFAR-10-test": {
+      "per_ordering": {
+        "0->1->2": {
+          "mean_vacuity": 0.015418944880366325,
+          "std_vacuity": 0.05798344686627388,
+          "mean_conflict": 0.021867966279387474,
+          "accuracy": 94.45999908447266
+        },
+        "0->2->1": {
+          "mean_vacuity": 0.01620662957429886,
+          "std_vacuity": 0.05950635299086571,
+          "mean_conflict": 0.021867966279387474,
+          "accuracy": 94.45999908447266
+        },
+        "1->0->2": {
+          "mean_vacuity": 0.015418944880366325,
+          "std_vacuity": 0.05798344314098358,
+          "mean_conflict": 0.021867966279387474,
+          "accuracy": 94.45999908447266
+        },
+        "1->2->0": {
+          "mean_vacuity": 0.01625656522810459,
+          "std_vacuity": 0.05959199368953705,
+          "mean_conflict": 0.021867968142032623,
+          "accuracy": 94.45999908447266
+        },
+        "2->0->1": {
+          "mean_vacuity": 0.016206631436944008,
+          "std_vacuity": 0.05950635299086571,
+          "mean_conflict": 0.021867966279387474,
+          "accuracy": 94.45999908447266
+        },
+        "2->1->0": {
+          "mean_vacuity": 0.01625656522810459,
+          "std_vacuity": 0.05959199368953705,
+          "mean_conflict": 0.021867966279387474,
+          "accuracy": 94.45999908447266
+        }
+      },
+      "spread": {
+        "n_orderings": 6,
+        "n_distinct_outcomes": 3,
+        "mean_max_pairwise_L1": 0.0020711335819214582,
+        "p99_max_pairwise_L1": 0.03855808451771736,
+        "max_max_pairwise_L1": 0.0742296651005745,
+        "mean_max_pairwise_vacuity_diff": 0.000845918373670429,
+        "max_max_pairwise_vacuity_diff": 0.029852673411369324,
+        "prediction_flip_rate": 0.0,
+        "mean_vacuity_across_orderings": 0.01596071384847164,
+        "range_of_mean_vacuity": 0.0008376184850931168
+      },
+      "symmetric": {
+        "mean_vacuity": 0.01596071384847164,
+        "max_l1_to_any_ordering": 0.0013293653028085828,
+        "accuracy": 94.45999908447266
+      }
+    },
+    "CIFAR-100": {
+      "per_ordering": {
+        "0->1->2": {
+          "mean_vacuity": 0.10083409398794174,
+          "std_vacuity": 0.13216321170330048,
+          "mean_conflict": 0.14366425573825836
+        },
+        "0->2->1": {
+          "mean_vacuity": 0.10498134791851044,
+          "std_vacuity": 0.13399071991443634,
+          "mean_conflict": 0.14366425573825836
+        },
+        "1->0->2": {
+          "mean_vacuity": 0.10083409398794174,
+          "std_vacuity": 0.13216321170330048,
+          "mean_conflict": 0.14366425573825836
+        },
+        "1->2->0": {
+          "mean_vacuity": 0.10520999878644943,
+          "std_vacuity": 0.13404767215251923,
+          "mean_conflict": 0.14366425573825836
+        },
+        "2->0->1": {
+          "mean_vacuity": 0.10498134791851044,
+          "std_vacuity": 0.13399071991443634,
+          "mean_conflict": 0.14366425573825836
+        },
+        "2->1->0": {
+          "mean_vacuity": 0.10520999878644943,
+          "std_vacuity": 0.13404767215251923,
+          "mean_conflict": 0.14366425573825836
+        }
+      },
+      "spread": {
+        "n_orderings": 6,
+        "n_distinct_outcomes": 3,
+        "mean_max_pairwise_L1": 0.01152370497584343,
+        "p99_max_pairwise_L1": 0.04957345873117447,
+        "max_max_pairwise_L1": 0.07498035579919815,
+        "mean_max_pairwise_vacuity_diff": 0.004416452720761299,
+        "max_max_pairwise_vacuity_diff": 0.029551073908805847,
+        "prediction_flip_rate": 0.00019999999494757503,
+        "mean_vacuity_across_orderings": 0.10367514938116074,
+        "range_of_mean_vacuity": 0.004375912249088287
+      },
+      "symmetric": {
+        "mean_vacuity": 0.10367514938116074,
+        "max_l1_to_any_ordering": 0.00742591405287385
+      },
+      "vacuity_auroc_per_ordering": {
+        "0->1->2": 0.8672608,
+        "0->2->1": 0.86684923,
+        "1->0->2": 0.867260745,
+        "1->2->0": 0.86690777,
+        "2->0->1": 0.86684923,
+        "2->1->0": 0.866907765
+      },
+      "vacuity_auroc_symmetric": 0.866987955,
+      "vacuity_auroc_range": 0.00041157000000002775
+    }
+  }
+}

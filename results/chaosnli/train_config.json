@@ -1,0 +1,17 @@
+{
+  "backbone": "roberta-base",
+  "dataset": "snli",
+  "epochs": 2,
+  "batch_size": 64,
+  "lr": 2e-05,
+  "num_sources": 3,
+  "combination_rule": "yager",
+  "lambda_unc": 0.1,
+  "lambda_aux": 0.1,
+  "max_length": 128,
+  "output_dir": "results/chaosnli",
+  "device": "cuda",
+  "freeze_backbone_epochs": 0,
+  "best_val_acc": 91.74964438122333,
+  "hidden_dim": 768
+}

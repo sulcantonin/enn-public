@@ -1,0 +1,22 @@
+[
+  {
+    "lambda_unc": 0.0,
+    "test_acc": 94.34,
+    "AUROC_CIFAR100": 0.8647406
+  },
+  {
+    "lambda_unc": 0.01,
+    "test_acc": 94.27,
+    "AUROC_CIFAR100": 0.8609567899999999
+  },
+  {
+    "lambda_unc": 0.1,
+    "test_acc": 94.25,
+    "AUROC_CIFAR100": 0.85974409
+  },
+  {
+    "lambda_unc": 1.0,
+    "test_acc": 94.23,
+    "AUROC_CIFAR100": 0.8498089900000001
+  }
+]

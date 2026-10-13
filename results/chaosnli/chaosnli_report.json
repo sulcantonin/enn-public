@@ -1,0 +1,23 @@
+{
+  "n_examples": 1514,
+  "spearman_vacuity": {
+    "r": 0.34590899952549004,
+    "p": 8.499069236462633e-44
+  },
+  "pearson_vacuity": {
+    "r": 0.3658638357500709,
+    "p": 3.672158491809128e-49
+  },
+  "spearman_softmax_entropy": {
+    "r": 0.3901816827064227,
+    "p": 3.1109644913723048e-56
+  },
+  "spearman_energy": {
+    "r": 0.3459083191867557,
+    "p": 8.502521703246268e-44
+  },
+  "mean_jsd": 0.2620926831365067,
+  "mean_vacuity_all": 0.05946609317992483,
+  "mean_vacuity_high_ambiguity": 0.0758901938571157,
+  "mean_vacuity_low_ambiguity": 0.035713972873054445
+}
