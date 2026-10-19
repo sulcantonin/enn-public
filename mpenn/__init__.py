@@ -4,6 +4,8 @@ Code for "Neural Networks with Differentiable Belief-Function Layers"
 (A. Sulc, BELIEF 2026).
 """
 
+__version__ = '1.1.0'
+
 from .combine import (
     dempster_combine,
     discount_mass,
@@ -11,9 +13,11 @@ from .combine import (
     fusion_yager_symmetric,
     yager_combine,
 )
-from .model import ENN, EvidenceToMass, compute_enn_loss
+from .layers import BeliefLayer, EvidenceToMass
+from .model import ENN, compute_enn_loss
 
 __all__ = [
+    'BeliefLayer',
     'ENN',
     'EvidenceToMass',
     'compute_enn_loss',

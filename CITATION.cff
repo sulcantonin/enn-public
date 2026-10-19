@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this code or the MP-ENN model, please cite the paper."
+title: "Neural Networks with Differentiable Belief-Function Layers"
+type: software
+authors:
+  - family-names: Sulc
+    given-names: Antonin
+license: MIT
+repository-code: "https://github.com/sulcantonin/enn-public"
+preferred-citation:
+  type: conference-paper
+  title: "Neural Networks with Differentiable Belief-Function Layers"
+  authors:
+    - family-names: Sulc
+      given-names: Antonin
+  editors:
+    - family-names: Denœux
+      given-names: Thierry
+    - family-names: Jousselme
+      given-names: Anne-Laure
+    - family-names: Su
+      given-names: Zhi-Gang
+  collection-title: "Belief Functions: Theory and Applications"
+  year: 2027
+  start: 61
+  end: 71
+  publisher:
+    name: "Springer Nature Switzerland"
+    city: Cham
+  isbn: "978-3-032-41960-6"
+  doi: "10.1007/978-3-032-41960-6_7"

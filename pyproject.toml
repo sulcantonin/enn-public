@@ -4,28 +4,44 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mpenn"
-version = "1.0.0"
+dynamic = ["version"]
 description = "Neural networks with differentiable belief-function layers (MP-ENN, BELIEF 2026)"
 readme = "README.md"
 license = { text = "MIT" }
 authors = [{ name = "Antonin Sulc" }]
 requires-python = ">=3.9"
-dependencies = [
-    "torch>=2.0,<2.6",
-    "torchvision>=0.15,<0.21",
-    "numpy>=1.24,<2.0",
+keywords = ["belief functions", "Dempster-Shafer", "evidential deep learning", "uncertainty", "pytorch"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = ["torch>=2.0"]
+
+[project.optional-dependencies]
+experiments = [
+    "torchvision>=0.15",
+    "numpy>=1.24",
     "scipy>=1.10",
     "scikit-learn>=1.2",
     "tqdm>=4.65",
     "matplotlib>=3.7",
 ]
+nli = ["mpenn[experiments]", "transformers>=4.30,<5.0", "datasets>=2.14"]
+dev = ["mpenn[experiments]", "pytest>=7"]
 
-[project.optional-dependencies]
-nli = ["transformers>=4.30,<5.0", "datasets>=2.14"]
-dev = ["pytest>=7"]
+[project.urls]
+Homepage = "https://github.com/sulcantonin/enn-public"
+Paper = "https://doi.org/10.1007/978-3-032-41960-6_7"
+Issues = "https://github.com/sulcantonin/enn-public/issues"
 
 [tool.setuptools]
 packages = ["mpenn"]
+
+[tool.setuptools.dynamic]
+version = { attr = "mpenn.__version__" }
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

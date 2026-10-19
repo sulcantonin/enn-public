@@ -1,6 +1,24 @@
+<div align="center">
+
 # Neural Networks with Differentiable Belief-Function Layers
 
-Code for the BELIEF 2026 paper *Neural Networks with Differentiable Belief-Function Layers* (Antonin Sulc).
+**MP-ENN: a neural network whose output is a Dempster–Shafer mass function, with "I do not know" built in.**
+
+[![Paper](https://img.shields.io/badge/Springer-10.1007%2F978--3--032--41960--6__7-blue?logo=springer)](https://doi.org/10.1007/978-3-032-41960-6_7)
+[![BELIEF 2026](https://img.shields.io/badge/BELIEF-2026-8A2BE2)](https://doi.org/10.1007/978-3-032-41960-6_7)
+[![Slides](https://img.shields.io/badge/talk-slides-orange)](BELIEF_2026_talk.pdf)
+[![Tests](https://github.com/sulcantonin/enn-public/actions/workflows/tests.yml/badge.svg)](https://github.com/sulcantonin/enn-public/actions/workflows/tests.yml)
+[![Python](https://img.shields.io/badge/python-3.9%2B-3776AB?logo=python&logoColor=white)](pyproject.toml)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/sulcantonin/enn-public)](https://github.com/sulcantonin/enn-public/commits/main)
+[![Stars](https://img.shields.io/github/stars/sulcantonin/enn-public?style=social)](https://github.com/sulcantonin/enn-public)
+
+[Paper](https://doi.org/10.1007/978-3-032-41960-6_7) · [Slides](BELIEF_2026_talk.pdf) · [Quick start](#using-the-model) · [Reproduce](#reproducing-the-paper) · [Cite](#citation)
+
+</div>
+
+Code for the paper *Neural Networks with Differentiable Belief-Function Layers* by Antonin Sulc, published in *Belief Functions: Theory and Applications* (BELIEF 2026), Springer, pp. 61–71.
 
 The paper's model is the Mass-Primitive Evidential Neural Network (MP-ENN). Every mass from the evidence heads to the output is a valid Dempster–Shafer mass function on the focal set F = {{c_1}, …, {c_K}, Θ}. The heads are combined with **Yager's rule**, which sends conflict to the ignorance set Θ instead of renormalising by 1/(1−κ). The rule is bilinear, and every partial derivative of the combined mass is bounded by 1 (Theorem 1). The output mass m(Θ) is the network's "I do not know" signal.
 
@@ -10,9 +28,17 @@ ResNet-18 ──► |S| evidence heads ──► mass on F (Eq. 1) ──► lea
 
 ## Installation
 
+The library alone (PyTorch is the only dependency):
+
+```bash
+pip install mpenn          # once published on PyPI; until then: pip install git+https://github.com/sulcantonin/enn-public
+```
+
+To run the paper's experiments:
+
 ```bash
 python -m venv .venv && source .venv/bin/activate
-pip install -e ".[nli]"        # drop [nli] if you do not need the ChaosNLI experiment
+pip install -e ".[experiments,nli]"   # drop nli if you do not need the ChaosNLI experiment
 ```
 
 For a specific CUDA build, install `torch`/`torchvision` first (e.g. from `https://download.pytorch.org/whl/cu121`) and then run the line above. Python ≥ 3.9 is required. The original runs used Python 3.10, PyTorch 2.x and CUDA 12.1.
@@ -27,6 +53,19 @@ python scripts/download_models.py    # ImageNet ResNet-18 and roberta-base, for 
 Datasets go to `data/` by default; set `MPENN_DATA` to use another location. The official ChaosNLI archive link no longer works. When it fails, `download_data.py` takes `chaosNLI_snli.jsonl` from a [community mirror](https://huggingface.co/datasets/earino/chaosnli) and checks its SHA-256. The Gaussian and Uniform noise OOD sets are generated on the fly.
 
 ## Using the model
+
+Put a belief-function head on **any** backbone with `BeliefLayer`:
+
+```python
+import torch
+from mpenn import BeliefLayer, compute_enn_loss
+
+head = BeliefLayer(in_features=768, num_classes=3, num_sources=3)
+out = head(torch.randn(8, 768))        # features from your own encoder
+loss = compute_enn_loss(out, torch.randint(0, 3, (8,)))['total']
+```
+
+The paper's CIFAR-10 model is `ENN`, which is `BeliefLayer` on a ResNet-18:
 
 ```python
 import torch
@@ -102,13 +141,20 @@ These choices are fixed in the code and some are not spelled out in the paper:
 
 ## Citation
 
+If you use this code or the MP-ENN model, please cite the paper:
+
 ```bibtex
-@inproceedings{sulc2026mpenn,
-  title     = {Neural Networks with Differentiable Belief-Function Layers},
+@InProceedings{10.1007/978-3-032-41960-6_7,
   author    = {Sulc, Antonin},
-  booktitle = {Belief Functions: Theory and Applications (BELIEF 2026)},
-  publisher = {Springer},
-  year      = {2026}
+  editor    = {Den{\oe}ux, Thierry and Jousselme, Anne-Laure and Su, Zhi-Gang},
+  title     = {Neural Networks with Differentiable Belief-Function Layers},
+  booktitle = {Belief Functions: Theory and Applications},
+  year      = {2027},
+  publisher = {Springer Nature Switzerland},
+  address   = {Cham},
+  pages     = {61--71},
+  isbn      = {978-3-032-41960-6},
+  doi       = {10.1007/978-3-032-41960-6_7}
 }
 ```
 
